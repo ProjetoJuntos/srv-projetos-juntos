@@ -1,16 +1,14 @@
 module.exports = {
   root: true,
-  env: {
-    mocha: true,
-    node: true,
+  parserOptions: {
+    ecmaVersion: 2021,
   },
   extends: ['eslint:recommended', 'airbnb-base'],
-  parserOptions: {
-    ecmaVersion: 9,
-    ecmaFeature: {
-      impliedStrict: false,
-    },
+  env: {
+    node: true,
+    mocha: true,
   },
   rules: {
+    strict: 'off',
   },
 };
