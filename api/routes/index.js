@@ -1,6 +1,13 @@
 const routes = [{
+  method: 'POST',
+  url: '/auth/token',
+  handler(request, reply) {
+    reply.send({ hello: 'world' });
+  },
+},
+{
   method: 'GET',
-  url: '/token',
+  url: '/auth/refresh',
   handler(request, reply) {
     reply.send({ hello: 'world' });
   },
