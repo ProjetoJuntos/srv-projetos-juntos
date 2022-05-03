@@ -1,4 +1,6 @@
-const routes = [{
+'use strict';
+
+module.exports = [{
   method: 'POST',
   url: '/auth/token',
   handler(request, reply) {
@@ -12,5 +14,3 @@ const routes = [{
     reply.send({ hello: 'world' });
   },
 }];
-
-module.exports = routes;

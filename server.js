@@ -1,18 +1,14 @@
 'use strict';
 
-const fastify = require('fastify')({ logger: true });
-const routes = require('./api/routes');
+const fastify = require('fastify');
+const routes = require('./v1/routes');
 
-routes.forEach((route) => {
-  fastify.route(route);
-});
+const server = fastify(({ logger: true }));
 
-const server = async () => {
-  try {
-    await fastify.listen(3001);
-  } catch (err) {
-    process.exit(1);
-  }
+module.exports.start = async () => {
+  server.register(routes, { prefix: '/v1' });
+  await server.listen(3001);
+  return server;
 };
 
 async function closeGracefully(signal) {
@@ -22,5 +18,3 @@ async function closeGracefully(signal) {
 }
 process.on('SIGINT', closeGracefully);
 process.on('SIGTERM', closeGracefully);
-
-module.exports = server;
