@@ -1,13 +1,14 @@
 'use strict';
 
 const fastify = require('fastify');
+const { app } = require('./config');
 const routes = require('./v1/routes');
 
 const server = fastify({});
 
 module.exports.start = async () => {
-  server.register(routes, { prefix: '/v1' });
-  await server.listen(3001);
+  server.register(routes, { prefix: app.baseRoute });
+  await server.listen(app.port, app.host);
   return server;
 };
 
