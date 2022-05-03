@@ -3,7 +3,7 @@
 const fastify = require('fastify');
 const routes = require('./v1/routes');
 
-const server = fastify(({ logger: true }));
+const server = fastify({});
 
 module.exports.start = async () => {
   server.register(routes, { prefix: '/v1' });
