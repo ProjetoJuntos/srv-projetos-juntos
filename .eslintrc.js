@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   parserOptions: {
     ecmaVersion: 2021,
+    sourceType: 'script',
   },
   extends: ['eslint:recommended', 'airbnb-base'],
   env: {
@@ -9,6 +10,5 @@ module.exports = {
     mocha: true,
   },
   rules: {
-    strict: 'off',
   },
 };

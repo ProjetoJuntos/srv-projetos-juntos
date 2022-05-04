@@ -1,5 +1,3 @@
-'use strict';
-
 const fastify = require('fastify');
 const { app } = require('./config');
 const routes = require('./v1/routes');

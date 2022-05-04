@@ -1,5 +1,3 @@
-'use strict';
-
 const authRoutes = require('./auth');
 
 const registerRoutes = (fastify, routes = [...authRoutes]) => {
