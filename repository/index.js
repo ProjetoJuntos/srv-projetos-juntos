@@ -1,14 +1,14 @@
 const { mongo } = require('../config');
 const db = require('../db');
 
-const factory = require('./factory');
+const Factory = require('./factory');
 
-const usersCollection = factory({
+const usersCollection = new Factory(
   db,
-  uri: mongo.connectionString,
-  dbName: mongo.dbName,
-  collectionName: mongo.collectionUsers,
-});
+  mongo.connectionString,
+  mongo.dbName,
+  mongo.collectionUsers,
+);
 
 module.exports = {
   usersCollection,

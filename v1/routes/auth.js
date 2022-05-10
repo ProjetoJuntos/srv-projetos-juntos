@@ -1,9 +1,9 @@
+const usersController = require('../controllers/UsersController');
+
 module.exports = [{
   method: 'POST',
   url: '/auth/token',
-  handler(request, reply) {
-    reply.send({ hello: 'world' });
-  },
+  handler: usersController,
 },
 {
   method: 'GET',

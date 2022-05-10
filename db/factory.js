@@ -8,8 +8,8 @@ module.exports = (MongoClient) => {
 
     async connectDb(uri, dbName) {
       const client = new this.Client(uri);
-      const connection = await client.connect();
-      this.connection = connection.db(dbName);
+      await client.connect();
+      this.connection = client.db(dbName);
       this.status = true;
       return this.connection;
     }
@@ -21,5 +21,5 @@ module.exports = (MongoClient) => {
       return this.connection.collection(collectionName);
     }
   };
-  return new DataBase();
+  return new DataBase(MongoClient);
 };
