@@ -10,7 +10,6 @@ module.exports.start = async () => {
     origin: '*',
     allowedHeaders: ['*'],
     strictPreflight: false,
-    preflightContinue: true,
     methods: ['GET', 'PUT', 'OPTIONS', 'POST', 'DELETE'],
   });
 
