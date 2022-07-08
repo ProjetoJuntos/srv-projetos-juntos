@@ -7,10 +7,22 @@ const server = fastify({});
 
 module.exports.start = async () => {
   server.register(cors, {
-    origin: '*',
-    methods: ['*'],
-    allowHeaders: ['*'],
+    origin: true,
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Accept',
+      'Content-Type',
+      'Authorization',
+    ],
+    methods: ['GET', 'PUT', 'OPTIONS', 'POST', 'DELETE'],
   });
+
+  fastify.addHook('preHandler', (req, reply, done) => {
+    reply.header('Access-Control-Allow-Origin', '*');
+    done();
+  });
+
   server.register(routes, { prefix: app.baseRoute });
   await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
   return server;
