@@ -17,7 +17,15 @@ const entregadoresCollection = new Factory(
   mongo.collectionEntregadores,
 );
 
+const doadoresCollection = new Factory(
+  db,
+  mongo.connectionString,
+  mongo.dbName,
+  mongo.collectionDoadores,
+);
+
 module.exports = {
   usersCollection,
   entregadoresCollection,
+  doadoresCollection,
 };

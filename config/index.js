@@ -10,6 +10,7 @@ const mongo = () => ({
   connectionString: process.env.CONNECTION_STRING,
   collectionUsers: process.env.COLLECTION_USERS,
   collectionEntregadores: process.env.COLLECTION_ENTREGADORES,
+  collectionDoadores: process.env.COLLECTION_DOADORES,
   dbName: process.env.DB_NAME,
 });
 

@@ -1,5 +1,9 @@
+/* eslint-disable default-param-last */
 const defaultConfigs = {
   upsert: false,
+  projection: {
+    _id: 0,
+  },
 };
 
 class Repository {
@@ -15,12 +19,17 @@ class Repository {
     return result.insertOne(data);
   }
 
-  async findOne(filter) {
+  async findOne(filter = {}) {
     const result = await this.db.collection(this.uri, this.dbName, this.collectionName);
-    return result.findOne(filter);
+    return result.findOne(filter, defaultConfigs);
   }
 
-  async updateOne({ _id }, update) {
+  async findAll(filter = {}) {
+    const result = await this.db.collection(this.uri, this.dbName, this.collectionName);
+    return result.find(filter, defaultConfigs).toArray();
+  }
+
+  async updateOne({ _id }, update = {}) {
     const result = this.db.collection(this.uri, this.dbName, this.collectionName);
     return result.updateOne({ _id }, update, defaultConfigs);
   }
