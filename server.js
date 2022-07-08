@@ -8,7 +8,7 @@ const server = fastify({});
 module.exports.start = async () => {
   server.register(cors, {
     origin: '*',
-    methods: ['POST', 'GET', 'PUT', 'DELETE'],
+    methods: ['POST', 'GET', 'PUT', 'DELETE', 'OPTIONS'],
   });
   server.register(routes, { prefix: app.baseRoute });
   await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
