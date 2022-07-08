@@ -6,7 +6,7 @@ const server = fastify({});
 
 module.exports.start = async () => {
   server.register(routes, { prefix: app.baseRoute });
-  await server.listen(app.port, app.host);
+  await server.listen(app.port, app.host || '0.0.0.0');
   return server;
 };
 
