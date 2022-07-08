@@ -9,6 +9,8 @@ module.exports.start = async () => {
   server.register(require('@fastify/cors'), {
     origin: '*',
     allowedHeaders: ['*'],
+    strictPreflight: false,
+    preflightContinue: true,
     methods: ['GET', 'PUT', 'OPTIONS', 'POST', 'DELETE'],
   });
 
