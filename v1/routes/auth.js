@@ -1,7 +1,7 @@
 const usersController = require('../controllers/UsersController');
 
 module.exports = [{
-  method: 'POST',
+  method: 'GET',
   url: '/auth/token',
   handler: usersController,
 },

@@ -10,6 +10,14 @@ const usersCollection = new Factory(
   mongo.collectionUsers,
 );
 
+const entregadoresCollection = new Factory(
+  db,
+  mongo.connectionString,
+  mongo.dbName,
+  mongo.collectionEntregadores,
+);
+
 module.exports = {
   usersCollection,
+  entregadoresCollection,
 };
