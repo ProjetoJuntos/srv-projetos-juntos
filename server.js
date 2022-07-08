@@ -1,13 +1,13 @@
 const fastify = require('fastify');
-const cors = require('@fastify/cors');
 const { app } = require('./config');
 const routes = require('./v1/routes');
 
 const server = fastify({});
 
 module.exports.start = async () => {
-  server.register(cors, {
-    origin: true,
+  // eslint-disable-next-line global-require
+  server.register(require('@fastify/cors'), {
+    origin: '*',
     allowedHeaders: ['*'],
     methods: ['GET', 'PUT', 'OPTIONS', 'POST', 'DELETE'],
   });
