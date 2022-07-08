@@ -10,7 +10,6 @@ module.exports.start = async () => {
     origin: '*',
     methods: ['*'],
     allowHeaders: ['*'],
-    preflight: false,
   });
   server.register(routes, { prefix: app.baseRoute });
   await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
