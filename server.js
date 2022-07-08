@@ -1,12 +1,17 @@
 const fastify = require('fastify');
+const cors = require('@fastify/cors');
 const { app } = require('./config');
 const routes = require('./v1/routes');
 
 const server = fastify({});
 
 module.exports.start = async () => {
+  server.register(cors, {
+    origin: '*',
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
+  });
   server.register(routes, { prefix: app.baseRoute });
-  await server.listen(app.port, app.host || '0.0.0.0');
+  await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
   return server;
 };
 
