@@ -5,14 +5,6 @@ const routes = require('./v1/routes');
 const server = fastify({});
 
 module.exports.start = async () => {
-  // eslint-disable-next-line global-require
-  server.register(require('fastify-cors'), {
-    origin: '*',
-    allowedHeaders: ['*'],
-    strictPreflight: false,
-    methods: ['GET', 'PUT', 'OPTIONS', 'POST', 'DELETE'],
-  });
-
   server.register(routes, { prefix: app.baseRoute });
   await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
   return server;
