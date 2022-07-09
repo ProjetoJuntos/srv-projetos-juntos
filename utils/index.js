@@ -1,7 +1,6 @@
-const { hash, createSalt, verifyHash } = require('./hash');
+const { hash, verifyHash } = require('./hash');
 
 module.exports = {
   hash,
-  createSalt,
   verifyHash,
 };

@@ -1,11 +1,13 @@
-const authRoutes = require('./auth');
+const usersRoutes = require('./users');
 const entregadores = require('./entregadores');
 const doadores = require('./doadores');
+const login = require('./login');
 
 const registerRoutes = (fastify, routes = [
-  ...authRoutes,
+  ...usersRoutes,
   ...entregadores,
   ...doadores,
+  ...login,
 ]) => {
   routes.forEach((route) => {
     fastify.route(route);
