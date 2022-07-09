@@ -6,7 +6,7 @@ const server = fastify({});
 
 module.exports.start = async () => {
   // eslint-disable-next-line global-require
-  server.register(require('@fastify/cors'), {
+  server.register(require('fastify-cors'), {
     origin: '*',
     allowedHeaders: ['*'],
     strictPreflight: false,
