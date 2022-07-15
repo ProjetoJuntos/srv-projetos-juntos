@@ -9,6 +9,7 @@ const add = async (request, reply) => {
       password: hash(password),
     };
     await usersCollection.insertOne(user);
+    reply.header('Access-Control-Allow-Origin', '*');
     reply.code(200).send(user);
   } catch (error) {
     reply.code(error.statusCode || 500).send(error.message || error);
@@ -18,6 +19,7 @@ const add = async (request, reply) => {
 const listAll = async (request, reply) => {
   try {
     const result = await usersCollection.findAll();
+    reply.header('Access-Control-Allow-Origin', '*');
     reply.code(200).send(result);
   } catch (error) {
     reply.code(error.statusCode || 500).send(error.message || error);
