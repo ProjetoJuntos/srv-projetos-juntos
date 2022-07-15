@@ -1,15 +1,21 @@
 const fastify = require('fastify');
-const cors = require('@fastify/cors');
+const proxy = require('@fastify/http-proxy');
 const { app } = require('./config');
 const routes = require('./v1/routes');
 
 const server = fastify({});
 
 module.exports.start = async () => {
-  server.register(cors, {
-    origin: '*',
-    methods: ['*'],
-    allowedHeaders: ['*'],
+  server.register(proxy, {
+    upstream: 'http://localhost:3001',
+    replyOptions: {
+      onResponse: (request, reply, res) => {
+        reply.header('Access-Control-Allow-Headers', '*');
+        reply.header('Access-Control-Allow-Origin', '*');
+        reply.header('Access-Control-Allow-Methods', '*');
+        res.send();
+      },
+    },
   });
   server.register(routes, { prefix: app.baseRoute });
   await server.listen({ port: app.port, host: app.host || '0.0.0.0' });
