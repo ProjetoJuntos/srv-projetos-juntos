@@ -11,6 +11,7 @@ const login = async (request, reply) => {
     const User = await usersCollection.findOne({ email: request.body.email });
     if (User && verifyHash(request.body.password, User.password)) {
       reply.header('Access-Control-Allow-Origin', '*');
+      reply.header('Access-Control-Allow-Headers', '*');
       reply.code(200).send();
     } else {
       throw err;

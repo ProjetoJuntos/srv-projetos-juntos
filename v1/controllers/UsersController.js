@@ -10,6 +10,7 @@ const add = async (request, reply) => {
     };
     await usersCollection.insertOne(user);
     reply.header('Access-Control-Allow-Origin', '*');
+    reply.header('Access-Control-Allow-Headers', '*');
     reply.code(200).send(user);
   } catch (error) {
     reply.code(error.statusCode || 500).send(error.message || error);
