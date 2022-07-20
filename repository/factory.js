@@ -29,9 +29,9 @@ class Repository {
     return result.find(filter, defaultConfigs).toArray();
   }
 
-  async findByRanking(filter = {}, sort = {}) {
+  async findByRanking({ filter = {}, sort = {} }) {
     const result = await this.db.collection(this.uri, this.dbName, this.collectionName);
-    return result.find(filter, defaultConfigs).sort(...sort).limit(5).toArray();
+    return result.find(filter, defaultConfigs).sort(sort).limit(5).toArray();
   }
 
   async updateOne({ _id }, update = {}) {
