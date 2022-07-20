@@ -21,7 +21,19 @@ const listAll = async (request, reply) => {
   }
 };
 
+const ranking = async (request, reply) => {
+  try {
+    const result = await doadoresCollection.find()
+      .sort(({ qtd: qtdA }, { qtd: qtdB }) => qtdB - qtdA);
+    reply.header('Access-Control-Allow-Origin', '*');
+    reply.code(200).send(result);
+  } catch (error) {
+    reply.code(error.statusCode || 500).send(error.message || error);
+  }
+};
+
 module.exports = {
   add,
   listAll,
+  ranking,
 };

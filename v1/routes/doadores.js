@@ -1,4 +1,4 @@
-const { add, listAll } = require('../controllers/DoadoresController');
+const { add, listAll, ranking } = require('../controllers/DoadoresController');
 
 module.exports = [
   {
@@ -10,6 +10,11 @@ module.exports = [
       reply.header('Access-Control-Allow-Headers', '*');
       reply.code(200).send();
     },
+  },
+  {
+    method: 'GET',
+    url: '/doadores/ranking',
+    handler: ranking,
   },
   {
     method: 'GET',

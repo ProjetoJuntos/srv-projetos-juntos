@@ -1,4 +1,6 @@
-const { add, listAll } = require('../controllers/EntregadoresController');
+const {
+  add, listAll, ranking, listByCep,
+} = require('../controllers/EntregadoresController');
 
 module.exports = [
   {
@@ -10,6 +12,16 @@ module.exports = [
       reply.header('Access-Control-Allow-Headers', '*');
       reply.code(200).send();
     },
+  },
+  {
+    method: 'GET',
+    url: '/entregadores/:cep',
+    handler: listByCep,
+  },
+  {
+    method: 'GET',
+    url: '/entregadores/ranking',
+    handler: ranking,
   },
   {
     method: 'GET',
