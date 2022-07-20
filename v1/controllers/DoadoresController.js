@@ -23,8 +23,8 @@ const listAll = async (request, reply) => {
 
 const ranking = async (request, reply) => {
   try {
-    const result = await doadoresCollection.findAll()
-      .sort(({ qtd: qtdA }, { qtd: qtdB }) => qtdB - qtdA);
+    const sort = { qtd: -1 };
+    const result = await doadoresCollection.findByRanking({ sort });
     reply.header('Access-Control-Allow-Origin', '*');
     reply.code(200).send(result);
   } catch (error) {

@@ -23,8 +23,8 @@ const listAll = async (request, reply) => {
 
 const ranking = async (request, reply) => {
   try {
-    const result = await entregadoresCollection.findAll()
-      .sort({ qtd: -1 });
+    const sort = { qtd: -1 };
+    const result = await entregadoresCollection.findByRanking({ sort });
     reply.header('Access-Control-Allow-Origin', '*');
     reply.code(200).send(result);
   } catch (error) {
