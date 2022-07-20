@@ -24,7 +24,7 @@ const listAll = async (request, reply) => {
 const ranking = async (request, reply) => {
   try {
     const result = await entregadoresCollection.findAll()
-      .sort(({ qtd: qtdA }, { qtd: qtdB }) => qtdB - qtdA);
+      .sort({ qtd: -1 });
     reply.header('Access-Control-Allow-Origin', '*');
     reply.code(200).send(result);
   } catch (error) {
