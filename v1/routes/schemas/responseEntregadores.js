@@ -6,6 +6,7 @@ const schemaEntregadores = {
         properties: {
           nome: { type: 'string' },
           sobrenome: { type: 'string' },
+          email: { type: 'string' },
           telefone: { type: 'string' },
           cidade: { type: 'string' },
           qtd: { type: 'number', default: 0 },
