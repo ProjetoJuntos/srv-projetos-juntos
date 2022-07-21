@@ -1,6 +1,7 @@
 const {
   add, listAll, ranking, listByCep,
 } = require('../controllers/EntregadoresController');
+const { responseEntregadores } = require('./schemas');
 
 module.exports = [
   {
@@ -17,16 +18,19 @@ module.exports = [
     method: 'GET',
     url: '/entregadores/:cep',
     handler: listByCep,
+    schema: responseEntregadores,
   },
   {
     method: 'GET',
     url: '/entregadores/ranking',
     handler: ranking,
+    schema: responseEntregadores,
   },
   {
     method: 'GET',
     url: '/entregadores',
     handler: listAll,
+    schema: responseEntregadores,
   },
   {
     method: 'POST',
