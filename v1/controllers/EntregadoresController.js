@@ -2,7 +2,14 @@ const { entregadoresCollection } = require('../../repository');
 
 const add = async (request, reply) => {
   try {
-    const result = await entregadoresCollection.insertOne(request.body);
+    const { body } = request;
+    if (body.CEP) {
+      body.CEP = body.CEP.replace('-', '');
+    }
+    if (body.telefone) {
+      body.telefone = body.telefone.replace(/[()-]/g, '');
+    }
+    const result = await entregadoresCollection.insertOne(body);
     reply.header('Access-Control-Allow-Origin', '*');
     reply.header('Access-Control-Allow-Headers', '*');
     reply.code(200).send(result);

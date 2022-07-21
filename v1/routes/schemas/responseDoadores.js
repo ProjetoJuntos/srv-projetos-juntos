@@ -16,7 +16,7 @@ const schemaEntregadores = {
           rua: { type: 'string' },
           numero: { type: 'string' },
           complemento: { type: 'string' },
-          cep: { type: 'string' },
+          CEP: { type: 'string' },
           estado: { type: 'string' },
         },
       },
