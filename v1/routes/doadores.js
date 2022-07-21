@@ -1,5 +1,7 @@
 const { add, listAll, ranking } = require('../controllers/DoadoresController');
 
+const { responseDoadores } = require('./schemas');
+
 module.exports = [
   {
     method: 'OPTIONS',
@@ -15,11 +17,13 @@ module.exports = [
     method: 'GET',
     url: '/doadores/ranking',
     handler: ranking,
+    schema: responseDoadores,
   },
   {
     method: 'GET',
     url: '/doadores',
     handler: listAll,
+    schema: responseDoadores,
   },
   {
     method: 'POST',
