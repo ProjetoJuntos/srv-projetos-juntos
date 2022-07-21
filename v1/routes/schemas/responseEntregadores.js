@@ -17,6 +17,7 @@ const schemaEntregadores = {
           numero: { type: 'string' },
           complemento: { type: 'string' },
           CEP: { type: 'string' },
+          bairro: { type: 'string' },
           estado: { type: 'string' },
         },
       },
