@@ -4,7 +4,7 @@ const app = () => ({
   port: process.env.PORT || 5000,
   host: process.env.HOST,
   baseRoute: process.env.BASE_ROUTE,
-  salt: process.env.SALT,
+  salt: process.env.SALT || '123500abcvvvvv',
 });
 
 const mongo = () => ({
