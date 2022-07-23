@@ -1,6 +1,7 @@
 const {
   add, listAll,
 } = require('../controllers/doacoesController');
+const { responseDoacoes } = require('./schemas');
 
 module.exports = [
   {
@@ -17,9 +18,11 @@ module.exports = [
     method: 'GET',
     url: '/doacoes',
     handler: listAll,
+    schema: responseDoacoes,
   },
   {
     method: 'POST',
     url: '/doacoes',
     handler: add,
+    schema: responseDoacoes,
   }];
