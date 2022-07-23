@@ -24,8 +24,24 @@ const doadoresCollection = new Factory(
   mongo.collectionDoadores,
 );
 
+const doacoesCollection = new Factory(
+  db,
+  mongo.connectionString,
+  mongo.dbName,
+  mongo.collectionDoacoes,
+);
+
+const beneficiariosCollection = new Factory(
+  db,
+  mongo.connectionString,
+  mongo.dbName,
+  mongo.collectionBeneficiarios,
+);
+
 module.exports = {
   usersCollection,
   entregadoresCollection,
   doadoresCollection,
+  doacoesCollection,
+  beneficiariosCollection,
 };

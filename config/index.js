@@ -12,6 +12,8 @@ const mongo = () => ({
   collectionUsers: process.env.COLLECTION_USERS,
   collectionEntregadores: process.env.COLLECTION_ENTREGADORES,
   collectionDoadores: process.env.COLLECTION_DOADORES,
+  collectionDoacoes: process.env.COLLECTION_DOACOES,
+  collectionBeneficiarios: process.env.COLLECTION_BENEFICIARIOS,
   dbName: process.env.DB_NAME,
 });
 
