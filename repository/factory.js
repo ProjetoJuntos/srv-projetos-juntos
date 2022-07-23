@@ -1,9 +1,5 @@
 /* eslint-disable default-param-last */
 const defaultConfigs = {
-  upsert: false,
-  projection: {
-    _id: 1,
-  },
 };
 
 class Repository {
