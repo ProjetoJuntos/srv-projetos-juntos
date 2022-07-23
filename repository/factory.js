@@ -2,7 +2,7 @@
 const defaultConfigs = {
   upsert: false,
   projection: {
-    _id: 0,
+    _id: 1,
   },
 };
 
