@@ -1,5 +1,5 @@
 const {
-  add, listAll,
+  add, listAll, listByCep,
 } = require('../controllers/doacoesController');
 const { responseDoacoes } = require('./schemas');
 
@@ -24,5 +24,11 @@ module.exports = [
     method: 'POST',
     url: '/doacoes',
     handler: add,
+    schema: responseDoacoes,
+  },
+  {
+    method: 'POST',
+    url: '/doacoes/:cep',
+    handler: listByCep,
     schema: responseDoacoes,
   }];

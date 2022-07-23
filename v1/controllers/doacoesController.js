@@ -39,18 +39,27 @@ const listAll = async (request, reply) => {
 //   }
 // };
 
-// const listByCep = async (request, reply) => {
-//   try {
-//     const { cep } = request.params;
-//     const result = await doacoesCollection.findAll({ filter: { cep } });
-//     reply.header('Access-Control-Allow-Origin', '*');
-//     reply.code(200).send(result);
-//   } catch (error) {
-//     reply.code(error.statusCode || 500).send(error.message || error);
-//   }
-// };
+const listByCep = async (request, reply) => {
+  try {
+    reply.header('Access-Control-Allow-Origin', '*');
+    const { cep } = request.params;
+    let CEP;
+    let result;
+    if (cep) {
+      CEP = cep.replace('-', '');
+      result = await doacoesCollection.findAll({ filter: { CEP } });
+    } else if (result === undefined || result === '') {
+      reply.code(404).send('Doações não encontrados para este Cep!');
+    } else {
+      reply.code(200).send(result);
+    }
+  } catch (error) {
+    reply.code(error.statusCode || 500).send(error.message || error);
+  }
+};
 
 module.exports = {
   add,
   listAll,
+  listByCep,
 };
