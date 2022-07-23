@@ -4,6 +4,7 @@ const schemaEntregadores = {
       type: 'array',
       items: {
         properties: {
+          _id: { type: 'string' },
           nome: { type: 'string' },
           email: { type: 'string' },
           telefone: { type: 'string' },
