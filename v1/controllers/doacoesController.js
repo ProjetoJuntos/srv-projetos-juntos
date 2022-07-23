@@ -2,7 +2,14 @@ const { doacoesCollection } = require('../../repository');
 
 const add = async (request, reply) => {
   try {
-    const result = await doacoesCollection.insertOne(request.body);
+    const { body } = request;
+    if (body.CEP) {
+      body.CEP = body.CEP.replace('-', '');
+    }
+    if (body.telefone) {
+      body.telefone = body.telefone.replace(/[()-]/g, '');
+    }
+    const result = await doacoesCollection.insertOne(body);
     reply.header('Access-Control-Allow-Origin', '*');
     reply.header('Access-Control-Allow-Headers', '*');
     reply.code(200).send(result);
