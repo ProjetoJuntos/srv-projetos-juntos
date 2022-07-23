@@ -25,5 +25,4 @@ module.exports = [
     method: 'POST',
     url: '/beneficiarios',
     handler: add,
-    schema: responseBeneficiarios,
   }];

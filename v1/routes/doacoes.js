@@ -24,7 +24,6 @@ module.exports = [
     method: 'POST',
     url: '/doacoes',
     handler: add,
-    schema: responseDoacoes,
   },
   {
     method: 'GET',
