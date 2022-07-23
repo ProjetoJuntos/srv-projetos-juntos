@@ -5,7 +5,7 @@ const {
 module.exports = [
   {
     method: 'OPTIONS',
-    url: '/doacoes',
+    url: '/beneficiarios',
     handler(res, reply) {
       reply.header('Content-Type', 'application/json; charset=utf-8');
       reply.header('Access-Control-Allow-Origin', '*');
