@@ -48,7 +48,7 @@ const listByCep = async (request, reply) => {
     if (cep) {
       CEP = cep.replace('-', '');
       result = await doacoesCollection.findAll({ filter: { CEP } });
-    } else if (result.lenght < 0) {
+    } else if (result.length < 0) {
       reply.code(404).send('Doações não encontrados para este Cep!');
     } else {
       reply.code(200).send(result);
