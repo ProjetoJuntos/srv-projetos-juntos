@@ -27,7 +27,7 @@ module.exports = [
     schema: responseDoacoes,
   },
   {
-    method: 'POST',
+    method: 'GET',
     url: '/doacoes/:cep',
     handler: listByCep,
     schema: responseDoacoes,
