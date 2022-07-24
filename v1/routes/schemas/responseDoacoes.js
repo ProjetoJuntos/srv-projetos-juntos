@@ -6,7 +6,7 @@ const schemaDoacoes = {
         properties: {
           _id: { type: 'string' },
           tipo: { type: 'string' },
-          desc: { type: 'string' },
+          desc: { type: 'string', default: 'sem dados' },
           foto: { type: 'string' },
           entregue: {
             type: 'boolean',
