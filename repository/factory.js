@@ -1,5 +1,6 @@
 /* eslint-disable default-param-last */
 const defaultConfigs = {
+  upsert: false,
 };
 
 class Repository {

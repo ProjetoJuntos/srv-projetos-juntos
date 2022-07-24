@@ -45,14 +45,16 @@ const listByCep = async (request, reply) => {
     const { cep } = request.params;
     let CEP;
     let result;
+    let code;
     if (cep) {
       CEP = cep.replace('-', '');
-      result = await doacoesCollection.findAll({ filter: { CEP } });
-    } else if (result.length < 1) {
-      reply.code(404).send('Doações não encontrados para este Cep!');
-    } else {
-      reply.code(200).send(result);
+      result = await doacoesCollection.findAll({ CEP });
     }
+    if (result.length < 1) {
+      result = 'not found';
+      code = 404;
+    }
+    reply.code(code || 200).send(result);
   } catch (error) {
     reply.code(error.statusCode || 500).send(error.message || error);
   }
