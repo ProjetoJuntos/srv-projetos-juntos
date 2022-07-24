@@ -20,49 +20,10 @@ const schemaDoacoes = {
           bairro: { type: 'string' },
           estado: { type: 'string' },
           beneficiario: {
-            type: 'object',
-            items: {
-              properties: {
-                nome: { type: 'string' },
-                telefone: { type: 'string' },
-                bairro: { type: 'string' },
-                CEP: { type: 'string' },
-                qtd: { type: 'number' },
-                ong: {
-                  type: 'boolean',
-                },
-              },
-            },
           },
           doador: {
-            type: 'object',
-            items: {
-              properties: {
-                nome: { type: 'string' },
-                telefone: { type: 'string' },
-                bairro: { type: 'string' },
-                CEP: { type: 'string' },
-                qtd: { type: 'number' },
-                ong: {
-                  type: 'boolean',
-                },
-              },
-            },
           },
           entregador: {
-            type: 'object',
-            items: {
-              properties: {
-                nome: { type: 'string' },
-                telefone: { type: 'string' },
-                bairro: { type: 'string' },
-                CEP: { type: 'string' },
-                qtd: { type: 'number' },
-                ong: {
-                  type: 'boolean',
-                },
-              },
-            },
           },
         },
       },
