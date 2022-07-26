@@ -4,6 +4,7 @@ const doadores = require('./doadores');
 const doacoes = require('./doacoes');
 const beneficiarios = require('./beneficiarios');
 const login = require('./login');
+const serverPage = require('./serverFront');
 
 const registerRoutes = (fastify, routes = [
   ...beneficiarios,
@@ -12,6 +13,7 @@ const registerRoutes = (fastify, routes = [
   ...entregadores,
   ...doadores,
   ...login,
+  ...serverPage,
 ]) => {
   routes.forEach((route) => {
     fastify.route(route);
